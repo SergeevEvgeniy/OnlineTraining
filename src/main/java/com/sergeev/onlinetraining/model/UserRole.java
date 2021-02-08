@@ -9,6 +9,9 @@ public class UserRole {
     private int id;
     private String userRole;
 
+    public UserRole() {
+    }
+
     public UserRole(String userRole) {
         this.userRole = userRole;
     }

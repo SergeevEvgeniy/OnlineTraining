@@ -8,13 +8,16 @@ public class User {
 
     private int id;
     private String email;
-    private String login;
+    private String nickname;
     private String password;
     private UserRole userRole;
 
-    public User(String email, String login, String password, UserRole userRole) {
+    public User() {
+    }
+
+    public User(String email, String nickname, String password, UserRole userRole) {
         this.email = email;
-        this.login = login;
+        this.nickname = nickname;
         this.password = password;
         this.userRole = userRole;
     }
@@ -35,12 +38,12 @@ public class User {
         this.email = email;
     }
 
-    public String getLogin() {
-        return login;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getPassword() {

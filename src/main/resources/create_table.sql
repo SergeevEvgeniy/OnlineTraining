@@ -2,7 +2,7 @@ CREATE TABLE Course
 (
 	courseId  integer NOT NULL,
 	name  varchar(20) NULL,
-	description  varchar(20) NULL,
+	description  varchar(100) NULL,
 	lector  integer NULL
 );
 
@@ -13,7 +13,7 @@ CREATE TABLE Evaluation
 (
 	evaluationID  integer NOT NULL,
 	grade  integer NULL,
-	comment  varchar(20) NULL,
+	comment  varchar(100) NULL,
 	studentId  integer NULL,
 	taskId  integer NULL
 );
@@ -35,7 +35,7 @@ CREATE TABLE Task
 (
 	taskId  integer NOT NULL,
 	name  varchar(20) NULL,
-	description  varchar(20) NULL,
+	description  varchar(100) NULL,
 	courseId  integer NULL
 );
 
@@ -45,7 +45,7 @@ ALTER TABLE Task
 CREATE TABLE User
 (
 	userId  integer NOT NULL,
-	email  varchar(20) NULL,
+	email  varchar(40) NULL,
 	login  varchar(20) NULL,
 	password  varchar(20) NULL,
 	userRoleId  integer NOT NULL

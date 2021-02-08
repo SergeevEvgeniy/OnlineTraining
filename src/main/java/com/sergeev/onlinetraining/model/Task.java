@@ -9,10 +9,16 @@ public class Task {
     private int id;
     private String name;
     private String descriprion;
+    private Course course;
 
-    public Task(String name, String descriprion) {
+    public Task(String name, String descriprion, Course course) {
         this.name = name;
         this.descriprion = descriprion;
+        this.course = course;
+    }
+
+    public Task() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getId() {
@@ -37,6 +43,14 @@ public class Task {
 
     public void setDescriprion(String descriprion) {
         this.descriprion = descriprion;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
 }
