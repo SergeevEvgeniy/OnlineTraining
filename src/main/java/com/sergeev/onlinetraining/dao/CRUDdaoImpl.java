@@ -97,6 +97,7 @@ public abstract class CRUDdaoImpl<EntityType> implements CRUDdao<EntityType> {
     }
 
     public void executeSQL(String sql) {
+        LOG.info(sql);
         try (Connection con = DriverManager.getConnection(
                 connect.getUrl(), connect.getUser(), connect.getPassword());) {
 

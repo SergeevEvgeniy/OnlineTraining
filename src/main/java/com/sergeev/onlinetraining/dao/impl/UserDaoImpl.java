@@ -15,8 +15,7 @@ import org.slf4j.LoggerFactory;
  */
 public class UserDaoImpl extends CRUDdaoImpl<User> {
 
-    private final String SEPARATOR = ", '";
-    private static final Logger LOG = LoggerFactory.getLogger(UserRoleDaoImpl.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(UserDaoImpl.class.getName());
 
     @Override
     protected List<User> parseResultSet(ResultSet rs) {
@@ -42,15 +41,15 @@ public class UserDaoImpl extends CRUDdaoImpl<User> {
     protected String getCreateQuery(User user) {
         return "INSERT INTO \"PUBLIC\".\"USER\" VALUES ("
                 + user.getId()
-                + SEPARATOR
+                + ", '"
                 + user.getEmail()
-                + SEPARATOR
+                + "', '"
                 + user.getNickname()
-                + SEPARATOR
+                + "', '"
                 + user.getPassword()
-                + SEPARATOR
+                + "', "
                 + user.getUserRole().getId()
-                + ");";
+                + ")";
     }
 
     @Override
@@ -61,7 +60,7 @@ public class UserDaoImpl extends CRUDdaoImpl<User> {
     @Override
     protected String getUpdateQuery(User user) {
         return "UPDATE \"PUBLIC\".\"USER\" SET"
-                + ", EMAIL = '" + user.getEmail()
+                + " EMAIL = '" + user.getEmail()
                 + "', nickname = '" + user.getNickname()
                 + "', password = '" + user.getPassword()
                 + "', USERROLEID = " + user.getUserRole().getId()
@@ -70,7 +69,7 @@ public class UserDaoImpl extends CRUDdaoImpl<User> {
 
     @Override
     protected String getDeleteQuery(User user) {
-        return "Delete FROM userrole WHERE userid = " + user.getId();
+        return "Delete FROM user WHERE userid = " + user.getId();
     }
 
 }

@@ -15,8 +15,7 @@ import org.slf4j.LoggerFactory;
  */
 public class CourseDaoImpl extends CRUDdaoImpl<Course> {
 
-    private final String SEPARATOR = ", '";
-    private static final Logger LOG = LoggerFactory.getLogger(UserRoleDaoImpl.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(CourseDaoImpl.class.getName());
 
     @Override
     protected List<Course> parseResultSet(ResultSet rs) {
@@ -41,13 +40,13 @@ public class CourseDaoImpl extends CRUDdaoImpl<Course> {
     protected String getCreateQuery(Course course) {
         return "INSERT INTO \"PUBLIC\".COURSE VALUES ("
                 + course.getId()
-                + SEPARATOR
+                + ", '"
                 + course.getName()
-                + SEPARATOR
+                + "', '"
                 + course.getDescription()
-                + SEPARATOR
+                + "', "
                 + course.getLector().getId()
-                + ");";
+                + ")";
     }
 
     @Override

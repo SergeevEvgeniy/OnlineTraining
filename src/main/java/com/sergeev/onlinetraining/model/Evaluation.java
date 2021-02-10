@@ -21,6 +21,9 @@ public class Evaluation {
         this.lector = lector;
     }
 
+    public Evaluation() {
+    }
+
     public int getId() {
         return id;
     }
@@ -68,6 +71,5 @@ public class Evaluation {
     public void setLector(User lector) {
         this.lector = lector;
     }
-    
-    
+
 }
