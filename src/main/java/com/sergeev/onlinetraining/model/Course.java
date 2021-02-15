@@ -1,6 +1,5 @@
 package com.sergeev.onlinetraining.model;
 
-import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -74,6 +73,13 @@ public class Course {
     }
 
     @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 61 * hash + this.id;
+        return hash;
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -85,16 +91,7 @@ public class Course {
             return false;
         }
         final Course other = (Course) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        return Objects.equals(this.lector, other.lector);
+        return this.id == other.id;
     }
 
 }

@@ -57,7 +57,7 @@ public class EvaluationDaoImplTest {
         dao.update(evaluation);
         Evaluation updatedEvaluation = getEvaluation(evaluation);
         Assert.assertNotNull(updatedEvaluation);
-        Assert.assertFalse(evaluation.equals(updatedEvaluation));
+        Assert.assertTrue(evaluation.equals(updatedEvaluation));
     }
 
     /**

@@ -1,9 +1,8 @@
 package com.sergeev.onlinetraining.config;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Properties;
 import org.slf4j.LoggerFactory;
 
@@ -14,7 +13,7 @@ import org.slf4j.LoggerFactory;
 public class DatabaseConfig {
 
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(DatabaseConfig.class.getName());
-    private final String PROPERTY_PATH = "src/main/resources/application.properties";
+    private final String PROPERTY_FILE = "application.properties";
 
     private String url;
     private String user;
@@ -34,17 +33,18 @@ public class DatabaseConfig {
 
     public DatabaseConfig() {
         try {
-            File file = new File(PROPERTY_PATH);
             Properties properties = new Properties();
-            properties.load(new FileReader(file));
+            properties.load(DatabaseConfig.class.getClassLoader().getResourceAsStream(PROPERTY_FILE));
 
             url = properties.getProperty("db.url");
             user = properties.getProperty("db.user");
             password = properties.getProperty("db.password");
-        } catch (FileNotFoundException ex) {
-            LOG.error("File Not Found", ex);
+
+            DriverManager.registerDriver(new org.h2.Driver());
         } catch (IOException ex) {
             LOG.error("I/o exception occured ", ex);
+        } catch (SQLException ex) {
+            LOG.error("Error registration db driver", ex);
         }
     }
 }

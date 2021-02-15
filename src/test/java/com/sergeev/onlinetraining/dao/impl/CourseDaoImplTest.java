@@ -54,7 +54,7 @@ public class CourseDaoImplTest {
         dao.update(course);
         Course updatedCourse = getCourse(course);
         Assert.assertNotNull(updatedCourse);
-        Assert.assertFalse(course.equals(updatedCourse));
+        Assert.assertTrue(course.equals(updatedCourse));
     }
 
     /**

@@ -45,7 +45,7 @@ public class UserRoleDaoImplTest {
         dao.update(userRole);
         UserRole updatedUserRole = getUserRole(userRole);
         Assert.assertNotNull(updatedUserRole);
-        Assert.assertFalse(userRole.equals(updatedUserRole));
+        Assert.assertTrue(userRole.equals(updatedUserRole));
     }
 
     /**

@@ -49,7 +49,7 @@ public class UserDaoImplTest {
         dao.update(user);
         User updatedUser = getUser(user);
         Assert.assertNotNull(updatedUser);
-        Assert.assertFalse(user.equals(updatedUser));
+        Assert.assertTrue(user.equals(updatedUser));
     }
 
     /**

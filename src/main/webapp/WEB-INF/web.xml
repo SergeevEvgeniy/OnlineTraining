@@ -6,18 +6,7 @@
          version="3.1">
     
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout> 30 </session-timeout>
     </session-config>
     
-    <servlet>
-        <servlet-name>CourseServlet</servlet-name>
-        <servlet-class>com.sergeev.onlinetraining.web.CourseServlet</servlet-class>
-    </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>CourseServlet</servlet-name>        
-        <url-pattern>/course</url-pattern>
-    </servlet-mapping>
 </web-app>

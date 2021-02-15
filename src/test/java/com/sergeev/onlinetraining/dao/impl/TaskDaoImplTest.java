@@ -54,7 +54,7 @@ public class TaskDaoImplTest {
         dao.update(task);
         Task updatedTask = getTask(task);
         Assert.assertNotNull(updatedTask);
-        Assert.assertFalse(task.equals(updatedTask));
+        Assert.assertTrue(task.equals(updatedTask));
     }
 
     /**
