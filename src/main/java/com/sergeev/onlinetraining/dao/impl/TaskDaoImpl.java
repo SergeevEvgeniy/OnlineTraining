@@ -26,7 +26,7 @@ public class TaskDaoImpl extends CRUDdaoImpl<Task> {
                 CourseDaoImpl cdi = new CourseDaoImpl();
                 task.setId(rs.getInt("taskid"));
                 task.setName(rs.getString("name"));
-                task.setDescriprion(rs.getString("description"));
+                task.setDescription(rs.getString("description"));
                 task.setCourse(cdi.getOneByMark("courseid", rs.getString("courseid")));
                 result.add(task);
             }
@@ -43,7 +43,7 @@ public class TaskDaoImpl extends CRUDdaoImpl<Task> {
                 + ", '"
                 + task.getName()
                 + "', '"
-                + task.getDescriprion()
+                + task.getDescription()
                 + "', "
                 + task.getCourse().getId() + ")";
     }
@@ -57,7 +57,7 @@ public class TaskDaoImpl extends CRUDdaoImpl<Task> {
     protected String getUpdateQuery(Task task) {
         return "UPDATE \"PUBLIC\".TASK SET "
                 + "\"NAME\" = '" + task.getName()
-                + "', DESCRIPTION = '" + task.getDescriprion()
+                + "', DESCRIPTION = '" + task.getDescription()
                 + "', COURSEID = " + task.getCourse().getId()
                 + " WHERE TASKID = " + task.getId();
     }

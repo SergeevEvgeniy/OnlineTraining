@@ -2,7 +2,9 @@ package com.sergeev.onlinetraining.service;
 
 import com.sergeev.onlinetraining.dao.CRUDdao;
 import com.sergeev.onlinetraining.dao.impl.CourseDaoImpl;
+import com.sergeev.onlinetraining.dao.impl.TaskDaoImpl;
 import com.sergeev.onlinetraining.model.Course;
+import com.sergeev.onlinetraining.model.Task;
 import java.util.List;
 
 /**
@@ -31,5 +33,9 @@ public class CourseService {
 
     public void delete(Course course) {
         dao.delete(course);
+    }
+
+    public List<Task> getTasks(Course course) {
+        return new TaskDaoImpl().getAllByMark("courseId", Integer.toString(course.getId()));
     }
 }

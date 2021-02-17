@@ -40,18 +40,17 @@ public abstract class CRUDdaoImpl<EntityType> implements CRUDdao<EntityType> {
     }
 
     /**
-     * Method for getting a single record from a database by the value of a
-     * single field
+     * Method for getting records from a database by the value of a single field
      *
      * @param mark - the name of the column in the database
      * @param param - value of the parameter of this column
-     * @return
+     * @return List<EntityType>
      */
     @Override
-    public EntityType getOneByMark(String mark, String param) {
+    public List<EntityType> getAllByMark(String mark, String param) {
         List<EntityType> list = new LinkedList<>();
         String sql = getSelectQuery();
-        sql += " where " + mark + "= " + param;
+        sql += " where " + mark + " = '" + param + "'";
         try (Connection con = DriverManager.getConnection(
                 connect.getUrl(), connect.getUser(), connect.getPassword());) {
 
@@ -61,6 +60,12 @@ public abstract class CRUDdaoImpl<EntityType> implements CRUDdao<EntityType> {
         } catch (SQLException sqlEx) {
             LOG.error("error query getOneByMark ", sqlEx);
         }
+        return list;
+    }
+
+    @Override
+    public EntityType getOneByMark(String mark, String param) {
+        final List<EntityType> list = getAllByMark(mark, param);
         if (list == null || list.isEmpty()) {
             return null;
         }

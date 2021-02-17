@@ -5,12 +5,11 @@
     <head>
         <title>${pageTitle}</title>
         <meta charset="UTF-8">
-
-        <jsp:include page="/stylesheetLinks.jspf"/>
+        <jsp:include page="/stylesheetLinks.jsp"/>
     </head>
     <body>
         <header>
-            <jsp:include page="/logoutHeader.jspf"/>
+            <jsp:include page="/logoutHeader.jsp"/>
         </header>
         <main>
             <div class="container">

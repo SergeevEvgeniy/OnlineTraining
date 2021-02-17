@@ -11,6 +11,8 @@ public interface CRUDdao<EntityType> {
 
     public void create(EntityType entity);
 
+    public List<EntityType> getAllByMark(String mark, String param);
+
     public EntityType getOneByMark(String mark, String param);
 
     public List<EntityType> getAll();

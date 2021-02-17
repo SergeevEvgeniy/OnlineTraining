@@ -1,5 +1,8 @@
 package com.sergeev.onlinetraining.web;
 
+import com.sergeev.onlinetraining.dao.CRUDdao;
+import com.sergeev.onlinetraining.dao.impl.UserDaoImpl;
+import com.sergeev.onlinetraining.model.User;
 import com.sergeev.onlinetraining.service.CourseService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -15,7 +18,8 @@ import java.io.IOException;
 @WebServlet("/courses")
 public class CourseServlet extends HttpServlet {
 
-    CourseService cs = new CourseService();
+    private final CourseService cs = new CourseService();
+    private final CRUDdao<User> dao = new UserDaoImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)

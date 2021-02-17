@@ -8,12 +8,12 @@ public class Task {
 
     private int id;
     private String name;
-    private String descriprion;
+    private String description;
     private Course course;
 
-    public Task(String name, String descriprion, Course course) {
+    public Task(String name, String description, Course course) {
         this.name = name;
-        this.descriprion = descriprion;
+        this.description = description;
         this.course = course;
     }
 
@@ -36,12 +36,12 @@ public class Task {
         this.name = name;
     }
 
-    public String getDescriprion() {
-        return descriprion;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescriprion(String descriprion) {
-        this.descriprion = descriprion;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Course getCourse() {

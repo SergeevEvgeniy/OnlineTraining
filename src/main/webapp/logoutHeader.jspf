@@ -1,8 +1,0 @@
-<div class="logout">
-    <h1>Hello, ${currentUser.name}</h1>  
-    <span id="currentUserLogin" th:text="${userEmail}">
-    </span>
-    <a href="/logout">
-        <i class="glyphicon glyphicon-off"></i>
-    </a>
-</div>

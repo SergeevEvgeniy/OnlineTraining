@@ -40,11 +40,8 @@ public class DatabaseConfig {
             user = properties.getProperty("db.user");
             password = properties.getProperty("db.password");
 
-            DriverManager.registerDriver(new org.h2.Driver());
         } catch (IOException ex) {
             LOG.error("I/o exception occured ", ex);
-        } catch (SQLException ex) {
-            LOG.error("Error registration db driver", ex);
         }
     }
 }

@@ -50,7 +50,7 @@ public class TaskDaoImplTest {
     @Test
     public void testUpdate() {
         LOG.info("test update Task");
-        task.setDescriprion("another description");
+        task.setDescription("another description");
         dao.update(task);
         Task updatedTask = getTask(task);
         Assert.assertNotNull(updatedTask);

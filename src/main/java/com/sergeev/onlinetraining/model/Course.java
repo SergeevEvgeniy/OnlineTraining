@@ -1,6 +1,6 @@
 package com.sergeev.onlinetraining.model;
 
-import java.util.Set;
+import java.util.List;
 
 /**
  *
@@ -12,8 +12,8 @@ public class Course {
     private String name;
     private String description;
     private User lector;
-    private Set<User> students;
-    private Set<Task> tasks;
+    private List<User> students;
+    private List<Task> tasks;
 
     public Course(String name, String description, User lector) {
         this.name = name;
@@ -56,19 +56,19 @@ public class Course {
         this.lector = lector;
     }
 
-    public Set<User> getStudents() {
+    public List<User> getStudents() {
         return students;
     }
 
-    public void setStudents(Set<User> subscribers) {
+    public void setStudents(List<User> subscribers) {
         this.students = subscribers;
     }
 
-    public Set<Task> getTasks() {
+    public List<Task> getTasks() {
         return tasks;
     }
 
-    public void setTasks(Set<Task> tasks) {
+    public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
     }
 
