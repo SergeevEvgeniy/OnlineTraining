@@ -17,6 +17,7 @@ public class TaskService {
     private final CRUDdao<Task> dao = new TaskDaoImpl();
 
     public void create(Task task) {
+        task.setId(dao.getLastId(task) + 1);
         dao.create(task);
     }
 

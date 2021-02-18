@@ -8,6 +8,7 @@
             <tr>
                 <th> Id </th>
                 <th> Course </th>
+                <th> Lector </th>
                 <th> Description </th>
                 <th> Action </th>
             </tr>
@@ -18,6 +19,9 @@
                     <td>${course.id}</td>
                     <td>
                         <a href="courses/view?id=${course.id}">${course.name}</a>
+                    </td>
+                    <td>
+                        <div>${course.lector.nickname}</div>
                     </td>
                     <td>
                         <div>${course.description}</div>

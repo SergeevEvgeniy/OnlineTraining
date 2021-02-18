@@ -20,4 +20,6 @@ public interface CRUDdao<EntityType> {
     public void update(EntityType entity);
 
     public void delete(EntityType entity);
+
+    public Integer getLastId(EntityType entity);
 }

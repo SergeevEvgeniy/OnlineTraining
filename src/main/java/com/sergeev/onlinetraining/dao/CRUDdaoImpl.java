@@ -112,4 +112,22 @@ public abstract class CRUDdaoImpl<EntityType> implements CRUDdao<EntityType> {
             LOG.error("query execution error ", sqlEx);
         }
     }
+
+    @Override
+    public Integer getLastId(EntityType entity) {
+        try (Connection con = DriverManager.getConnection(
+                connect.getUrl(), connect.getUser(), connect.getPassword());) {
+
+            final String entityName = entity.getClass().getSimpleName().toLowerCase();
+            String sql = "SELECT MAX(" + entityName + "id) FROM " + entityName;
+            pstmt = con.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException sqlEx) {
+            LOG.error("query execution error ", sqlEx);
+        }
+        return 0;
+    }
 }

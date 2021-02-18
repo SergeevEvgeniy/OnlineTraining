@@ -5,11 +5,15 @@
 <tag:layout pageTitle="Описание курса">
     <p> Name : ${course.name} </p>
     <p> Description : ${course.description} </p>
+    <c:if test="${isEditable}">
+        <a class="btn btn-mini btn-success" 
+           href="tasks/create?courseid=${course.id}">Create Task</a>
+    </c:if>
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
                 <th> Id </th>
-                <th> Course </th>
+                <th> Task </th>
                 <th> Description </th>
                 <th> Action </th>
             </tr>
@@ -18,15 +22,21 @@
             <c:forEach var="task" items="${course.tasks}">
                 <tr>
                     <td>${task.id}</td>
-                    <td>
-                        <a href="tasks/view?id=${task.id}">${task.name}</a>
+                    <td>                       
+                        <a href="tasks/view?id=${task.id}">${task.name}</a>                        
                     </td>
                     <td>
-                        <div>${task.description}</div>
+                        <div>${task.description}</div>                  
                     </td>
                     <td>
-                        <a class="btn btn-mini" 
-                           href="tasks/view?id=${task.id}">View</a>
+                        <form action="tasks/delete?courseid=${course.id}&taskid=${task.id}" 
+                              method="post">
+                            <a class="btn btn-mini" 
+                               href="tasks/view?id=${task.id}">View</a>
+                            <c:if test="${isEditable}">
+                                <button class="btn btn-mini"> Delete </button>
+                            </c:if>
+                        </form>
                     </td>
                 </tr>
             </c:forEach>
