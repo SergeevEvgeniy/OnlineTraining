@@ -19,7 +19,6 @@ import java.io.IOException;
 public class CourseServlet extends HttpServlet {
 
     private final CourseService cs = new CourseService();
-    private final CRUDdao<User> dao = new UserDaoImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)

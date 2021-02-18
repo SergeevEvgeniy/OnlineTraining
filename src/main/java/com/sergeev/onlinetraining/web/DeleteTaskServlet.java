@@ -16,7 +16,7 @@ import java.io.IOException;
 @WebServlet("/courses/tasks/delete")
 public class DeleteTaskServlet extends HttpServlet {
 
-    TaskService ts = new TaskService();
+    private final TaskService ts = new TaskService();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

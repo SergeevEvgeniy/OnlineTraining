@@ -17,4 +17,12 @@ public class UserDTO {
     public Boolean isAdmin() {
         return "admin".equals(user.getUserRole().getUserRole());
     }
+
+    public Boolean isLector() {
+        return "lector".equals(user.getUserRole().getUserRole());
+    }
+
+    public User getUser() {
+        return user;
+    }
 }

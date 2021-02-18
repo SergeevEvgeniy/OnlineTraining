@@ -25,6 +25,11 @@ public class UserService {
         return dao.getAllByMark("userroleid", Integer.toString(lectorRole.getId()));
     }
 
+    public List<User> getStudents() {
+        final UserRole lectorRole = roleDao.getOneByMark("userrole", "student");
+        return dao.getAllByMark("userroleid", Integer.toString(lectorRole.getId()));
+    }
+
     public User getById(String param) {
         return dao.getOneByMark("userId", param);
     }
