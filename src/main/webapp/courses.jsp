@@ -33,7 +33,16 @@
                             <a class="btn btn-mini" 
                                href="courses/edit?id=${course.id}">Edit</a>
                         </c:if>
-
+                        <c:if test="${user.isStudent()}">
+                            <c:if test="${user.isSubscribed(course.id)}">
+                                <a class="btn btn-mini btn-danger" 
+                                   href="courses/unsubscribe?id=${course.id}">Unsubscribe</a>
+                            </c:if>
+                            <c:if test="${!user.isSubscribed(course.id)}">
+                                <a class="btn btn-mini btn-success" 
+                                   href="courses/subscribe?id=${course.id}">Subscribe</a>
+                            </c:if>
+                        </c:if>
                     </td>
                 </tr>
             </c:forEach>

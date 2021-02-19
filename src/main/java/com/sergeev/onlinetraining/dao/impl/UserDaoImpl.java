@@ -1,9 +1,14 @@
 package com.sergeev.onlinetraining.dao.impl;
 
+import com.sergeev.onlinetraining.config.DatabaseConfig;
 import com.sergeev.onlinetraining.dao.CRUDdaoImpl;
 import com.sergeev.onlinetraining.model.User;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import org.slf4j.Logger;

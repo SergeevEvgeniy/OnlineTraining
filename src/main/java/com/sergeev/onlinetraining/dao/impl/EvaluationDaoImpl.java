@@ -29,7 +29,7 @@ public class EvaluationDaoImpl extends CRUDdaoImpl<Evaluation> {
                 evaluation.setId(rs.getInt("evaluationid"));
                 evaluation.setGrade(rs.getInt("grade"));
                 evaluation.setComment(rs.getString("comment"));
-                evaluation.setStudent(udi.getOneByMark("userid", rs.getString("subscriberid")));
+                evaluation.setStudent(udi.getOneByMark("userid", rs.getString("studentid")));
                 evaluation.setTask(tdi.getOneByMark("taskid", rs.getString("taskid")));
                 result.add(evaluation);
             }
@@ -64,7 +64,7 @@ public class EvaluationDaoImpl extends CRUDdaoImpl<Evaluation> {
         return "UPDATE \"PUBLIC\".EVALUATION SET "
                 + "GRADE = " + evaluation.getGrade()
                 + ", COMMENT ='" + evaluation.getComment() + "'"
-                + ", SUBSCRIBERID = " + evaluation.getStudent().getId()
+                + ", STUDENTID = " + evaluation.getStudent().getId()
                 + ", TASKID = " + evaluation.getTask().getId()
                 + " WHERE EVALUATIONID = 1";
     }

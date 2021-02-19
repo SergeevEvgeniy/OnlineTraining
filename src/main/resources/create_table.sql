@@ -21,15 +21,15 @@ CREATE TABLE Evaluation
 ALTER TABLE Evaluation
 	ADD  PRIMARY KEY (evaluationID);
 
-CREATE TABLE students
+CREATE TABLE subscription
 (
-	studentId  integer NOT NULL,
+	subscriptionId  integer NOT NULL,
 	userId  integer NOT NULL,
 	courseId  integer NOT NULL
 );
 
-ALTER TABLE students
-	ADD  PRIMARY KEY (studentId);
+ALTER TABLE subscription
+	ADD  PRIMARY KEY (subscriptionId);
 
 CREATE TABLE Task
 (
@@ -46,7 +46,7 @@ CREATE TABLE User
 (
 	userId  integer NOT NULL,
 	email  varchar(40) NULL,
-	login  varchar(20) NULL,
+	nickname  varchar(20) NULL,
 	password  varchar(20) NULL,
 	userRoleId  integer NOT NULL
 );
@@ -67,15 +67,15 @@ ALTER TABLE Course
 	ADD FOREIGN KEY (lector) REFERENCES User(userId);
 
 ALTER TABLE Evaluation
-	ADD FOREIGN KEY (studentId) REFERENCES students(studentId);
+	ADD FOREIGN KEY (studentId) REFERENCES User(userId);
 
 ALTER TABLE Evaluation
 	ADD FOREIGN KEY (taskId) REFERENCES Task(taskId);
 
-ALTER TABLE subscribers
+ALTER TABLE subscription
 	ADD FOREIGN KEY (userId) REFERENCES User(userId);
 
-ALTER TABLE subscribers
+ALTER TABLE subscription
 	ADD FOREIGN KEY (courseId) REFERENCES Course(courseId);
 
 ALTER TABLE Task
